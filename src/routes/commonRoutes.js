@@ -13,7 +13,7 @@ router.get('/profile', userAuth, async (req, res) => {
 });
 
 
-router.get('/event',userAuth, async (req, res) => {
+router.get('/event', async (req, res) => {
   try {
     const events = await Event.find().sort({
       date: 1,       

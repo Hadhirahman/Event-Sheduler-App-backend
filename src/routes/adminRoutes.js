@@ -89,7 +89,7 @@ router.put('/event/:id',userAuth, async (req, res) => {
 
     return res.status(200).send({message:"event updated success fully",updated })
   } catch (err) {
-    console.error(err);
+    
     return res.status(500).json({ error: 'Server error' });
   }
 });
@@ -101,20 +101,20 @@ router.put('/event/:id',userAuth, async (req, res) => {
 router.delete('/:id',userAuth, async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
+
     if (!id) {
       return res.status(400).json({ error: 'Invalid event id' });
     }
 
     const deleted = await Event.findByIdAndDelete(id).lean();
-    console.log(deleted);
+
     
     if (!deleted) {
       return res.status(404).json({ error: 'Event not found' });
     }
     return res.json({ success: true, deleted });
   } catch (err) {
-    console.error(err);
+
     return res.status(500).send({message: 'Server error' });
   }
 });

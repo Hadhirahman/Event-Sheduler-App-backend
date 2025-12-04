@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const adminRoutes=require('./src/routes/adminRoutes');
 const authRoutes=require('./src/routes/authRouter');
 const commonRoutes=require('./src/routes/commonRoutes');
-app.use('/',adminRoutes);
-app.use('/',authRoutes);
+app.use('/admin',adminRoutes);
+app.use('/auth',authRoutes);
 app.use('/',commonRoutes);
 
 
